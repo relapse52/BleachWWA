@@ -1,20 +1,22 @@
 // BEGIN_INTERNALS
 /*
+MAP_PLANE_MASTERS: (null)
 MAP_ZOOM: 1.000
 LAST_COMPILE_TIME: 1697616579
-DIR: _Relapse work Bounts\Fire Bounts\Water Codes Codes\db Codes\TowerOfBWWA Icons Icons\backup Icons\firesword ssjradditz\on-screeninventory 
 PACKAGE_RSC_NAME: C:\Users\Zagros\Dropbox\Bleach WWA\BleachWWA\BleachWWA_rsc.zip
+DIR: _Relapse work Bounts\Fire Bounts\Water Codes Codes\db Codes\TowerOfBWWA Icons Icons\backup Icons\firesword ssjradditz\on-screeninventory 
 AUTO_FILE_DIR: OFF
 PACKAGE_DMB_INFO: 
 MAP_ICON_TYPE: 0
 PACKAGE_DME_NAME: C:\Users\Zagros\Dropbox\Bleach WWA\BleachWWA\BleachWWA_src.zip
 LAST_COMPILE_VERSION: 514.1589
-PACKAGE_TYPE: 0
 PACKAGE_DME_START: 
+PACKAGE_TYPE: 0
+WINDOW: Codes\Scoreboard.dm;Codes\Admin.dm;Codes\Fullbrings.dm;Codes\Skillcards.dm;_Relapse work\updatetab.dm;Codes\GuildRelap.dm;Codes\Level Up.dm;Codes\Login.dm;Codes\Clothes.dm
 PACKAGE_DME_INFO: 
-WINDOW: Codes\Scoreboard.dm;Codes\Admin.dm;Codes\Fullbrings.dm;Codes\Skillcards.dm;_Relapse work\updatetab.dm
-FILE: _Relapse work\updatetab.dm
-PACKAGE_DMB_NAME: C:\Users\Zagros\Desktop\BleachWWA.zip
+FILE: Codes\GuildRelap.dm
+MAP_INSTANCE_MODE: copy
 PACKAGE_DME_DEMO: 
+PACKAGE_DMB_NAME: C:\Users\Zagros\Desktop\BleachWWA.zip
 */
 // END_INTERNALS
