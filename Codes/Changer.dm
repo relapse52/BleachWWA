@@ -643,32 +643,35 @@ mob
 				set src in oview(2)
 				switch(input("Do you want to buy a fuse or refund one?", text) in list ("Buy","Return"))
 					if("Buy")
-						if(usr.donor_points>0)
-		//					var/rebirthcount = usr.timesRebirthed
+						if(usr.donor_points > 0)
 							var/list/DPList = new
-							var/mob/O
-							var/FuseCost=fusePrice
+							var/O
+							var/FuseCost = fusePrice
 
-							//Boosts for higher Level
-
-							/*
-							src.contents|=new/obj/skillcard/Hollow_Zangetsu
-							src.contents|=new/obj/skillcard/Rinnegan
-							*/
-
-							DPList += fuseList
+							// Filter logic for IsPureH
+							//relapse: dont have fuseListP in my version
+							if(usr.IsPureH == 1)
+								for(var/fuseName in fuseList)
+									var/fusePath = fuseList[fuseName]
+									if(!(fusePath in fuseListP))
+										DPList += fuseName
+							else
+								DPList += fuseList
 
 							DPList += "Red Hakuteiken"
 
-							var/mob/U = input("Which item from the DP store do you want to purchase?", "DP Shop Owner") as null|anything in DPList
-							O = usr.fuseList[U]
+							var/fuse_choice = input("Which item from the DP store do you want to purchase?", "DP Shop Owner") as null|anything in DPList
+
+							if(!fuse_choice) return
+
+							O = usr.fuseList[fuse_choice]
 							if(!O)
-								switch(U)
+								switch(fuse_choice)
 									if("Red Hakuteiken")
 										if(usr.redH==0)
 											if(usr.UseDP(2000))
 												usr.redH=1
-												usr.contents|=new/obj/skillcard/RedHakuteiken
+												usr.contents+=new/obj/skillcard/RedHakuteiken
 												usr.RefreshSkillList()
 												usr<<"You've learned the ultimate boost needed to take on your enemies."
 										else
@@ -676,15 +679,14 @@ mob
 									else
 										usr<<"Thanks for shopping!"
 							else
-								//if((O in usr.verbs)== 0 && !usr.hasFuse[O])
 								if(!usr.hasFuse[O])
 									if(usr.UseDP(FuseCost))
 										usr.hasFuse[O] = 1
-										usr.verbs|=O
-										usr<<"You've attained the [U]"
+										usr.verbs+=O
+										usr<<"You've attained the [fuse_choice]"
 										usr.fuseCount++
 								else
-									usr<<"You already have the [U]"
+									usr<<"You already have the [fuse_choice]"
 
 							usr.saveproc()
 						else
