@@ -281,6 +281,7 @@ proc/namesfilter(string)
 				if(0x30 to 0x39, 0x41 to 0x5A, 0x61 to 0x7A) return 1
 				else return 0
 		else return 0
+
 //-----------------------------------------
 proc/cursefilter(string)
 	if(oocfiltered)
